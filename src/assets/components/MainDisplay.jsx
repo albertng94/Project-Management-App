@@ -2,7 +2,7 @@ import logo from "../no-projects.png";
 
 export default function MainDisplay() {
     return (
-        <div className="w-full pt-40 flex flex-col items-center gap-5">
+        <div id="main-display" className="w-full pt-40 flex flex-col items-center gap-5">
             <img 
             src={logo} 
             alt="A drawing of a notebook and a pen"

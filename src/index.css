@@ -7,4 +7,28 @@
     border: red 2px solid;
     min-height: 100vh;
     padding-top: 40px;
+    
 }
+
+
+#main-display {
+    border: cyan 2px solid;
+}
+
+#modal-root {
+    border: pink 2px solid;
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+#modal-root .dialog {
+    border: black solid 2px;
+    position: relative;
+    width: 700px;
+    top: 600px;
+    left: 15%;
+}
+
+
+/*className="pt-40 flex flex-col shrink-0 items-center gap-5"*/
