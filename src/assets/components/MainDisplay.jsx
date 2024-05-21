@@ -1,6 +1,6 @@
 import logo from "../no-projects.png";
 
-export default function MainDisplay() {
+export default function MainDisplay({ onClick }) {
     return (
         <div id="main-display" className="w-full pt-40 flex flex-col items-center gap-5">
             <img 
@@ -10,7 +10,7 @@ export default function MainDisplay() {
             />
             <h2 className="font-bold text-2xl text-stone-500">No Project Selected</h2>
             <p className="text-lg text-stone-400">Select a project or get started with a new one</p>
-            <button className="m-5 py-2 px-5 bg-stone-700 text-lg text-stone-400 rounded-lg">Create new project</button>
+            <button onClick={onClick} className="m-5 py-2 px-5 bg-stone-700 text-lg text-stone-400 rounded-lg">Create new project</button>
         </div>
     );
 }
