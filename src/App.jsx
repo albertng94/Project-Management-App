@@ -12,7 +12,6 @@ function App() {
 
   function handleClickCreateProjectButton() {
       setCreateProject(true);
-      console.log(createProject);
   }
 
   function handleCloseCreateProjectDialog() {
@@ -21,13 +20,12 @@ function App() {
 
   function handleSubmitProject(submittedProject) {
     listOfProjects.push(submittedProject);
-    console.log(listOfProjects);
     setCreateProject(false);
   }
 
   return (
     <>
-      <ProjectsSidebar onClick={handleClickCreateProjectButton} />
+      <ProjectsSidebar onClick={handleClickCreateProjectButton} listOfProjects={listOfProjects} />
       {createProject ? 
       <CreateProjectForm 
       onClose={handleCloseCreateProjectDialog}
