@@ -4,6 +4,7 @@ import CreateProjectForm from "./assets/components/CreateProjectForm";
 
 import { useState } from "react";
 
+let listOfProjects = [];
 
 function App() {
 
@@ -18,16 +19,26 @@ function App() {
     setCreateProject(false);
   }
 
-  function handleSubmitProject() {
+  function handleSubmitProject(submittedProject) {
+    listOfProjects.push(submittedProject);
+    console.log(listOfProjects);
     setCreateProject(false);
   }
 
   return (
     <>
       <ProjectsSidebar onClick={handleClickCreateProjectButton} />
-      {createProject ? <CreateProjectForm onClose={handleCloseCreateProjectDialog} onSubmit={handleSubmitProject} /> : <MainDisplay onClick={handleClickCreateProjectButton} />}
+      {createProject ? 
+      <CreateProjectForm 
+      onClose={handleCloseCreateProjectDialog}
+      onCreateProject={handleSubmitProject} 
+      /> : 
+      <MainDisplay 
+      onClick={handleClickCreateProjectButton} 
+      />}
     </>
   );
 }
 
 export default App;
+
