@@ -1,6 +1,6 @@
 import logo from "../no-projects.png";
 
-export default function MainDisplay({ onClick }) {
+export default function DefaultDisplay({ onClick }) {
     return (
         <div id="main-display" className="w-full pt-40 flex flex-col items-center gap-5">
             <img 

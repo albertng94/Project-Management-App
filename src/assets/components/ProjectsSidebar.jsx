@@ -1,4 +1,4 @@
-export default function ProjectsSidebar({ onClick, listOfProjects }) {
+export default function ProjectsSidebar({ onClick, listOfProjects, onProjectSelection }) {
 
     let liStyle = "text-stone-400 mb-2 py-1 px-2 hover:bg-stone-800";
     
@@ -8,7 +8,7 @@ export default function ProjectsSidebar({ onClick, listOfProjects }) {
         });
     }
     
-
+    console.log(listOfProjects);
 
     return (
         <div className=" flex flex-col shrink-0 bg-stone-900 gap-10 px-10 w-96 text-white rounded-tr-2xl">
@@ -18,7 +18,7 @@ export default function ProjectsSidebar({ onClick, listOfProjects }) {
                 <ul>
                     {listOfProjects.map((project, projectIndex) => (
                         <li key={projectIndex} className={liStyle}>
-                            <button className="w-full text-left">
+                            <button onClick={onProjectSelection} className="w-full text-left">
                                 {project.title}
                             </button>
                         </li>

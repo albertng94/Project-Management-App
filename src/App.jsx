@@ -1,6 +1,7 @@
 import ProjectsSidebar from "./assets/components/ProjectsSidebar";
-import MainDisplay from "./assets/components/MainDisplay";
 import CreateProjectForm from "./assets/components/CreateProjectForm";
+import DefaultDisplay from "./assets/components/DefaultDisplay";
+import ProjectOverview from "./assets/components/ProjectOverview";
 
 import { useState } from "react";
 
@@ -8,32 +9,41 @@ let listOfProjects = [];
 
 function App() {
 
-  const [createProject, setCreateProject] = useState(false);
+  const [createProject, setCreateProject] = useState(undefined);
 
   function handleClickCreateProjectButton() {
-      setCreateProject(true);
+      setCreateProject(null);
   }
 
   function handleCloseCreateProjectDialog() {
-    setCreateProject(false);
+    setCreateProject(undefined);
   }
 
   function handleSubmitProject(submittedProject) {
     listOfProjects.push(submittedProject);
-    setCreateProject(false);
+    setCreateProject(undefined);
+  }
+
+  function handleProjectSelection() {
+    setCreateProject(true);
+  }
+
+  let mainDisplay = <DefaultDisplay onClick={handleClickCreateProjectButton} />;
+
+  if (createProject === null) {
+    mainDisplay = <CreateProjectForm onClose={handleCloseCreateProjectDialog} onCreateProject={handleSubmitProject} />;
+  } else if (createProject === true) {
+    mainDisplay = <ProjectOverview />;
   }
 
   return (
     <>
-      <ProjectsSidebar onClick={handleClickCreateProjectButton} listOfProjects={listOfProjects} />
-      {createProject ? 
-      <CreateProjectForm 
-      onClose={handleCloseCreateProjectDialog}
-      onCreateProject={handleSubmitProject} 
-      /> : 
-      <MainDisplay 
+      <ProjectsSidebar 
       onClick={handleClickCreateProjectButton} 
-      />}
+      listOfProjects={listOfProjects} 
+      onProjectSelection={handleProjectSelection} 
+      />
+      {mainDisplay}
     </>
   );
 }
