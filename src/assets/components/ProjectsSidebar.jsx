@@ -2,12 +2,6 @@ export default function ProjectsSidebar({ onClick, listOfProjects, onProjectSele
 
     let liStyle = "text-stone-400 mb-2 py-1 px-2 hover:bg-stone-800";
     
-    if (listOfProjects.length > 0) {
-        listOfProjects.forEach((element, index) => {
-            element.id = index;
-        });
-    }
-    
     console.log(listOfProjects);
 
     return (

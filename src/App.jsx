@@ -21,6 +21,13 @@ function App() {
 
   function handleSubmitProject(submittedProject) {
     listOfProjects.push(submittedProject);
+    
+    if (listOfProjects.length > 0) {
+      listOfProjects.forEach((element, index) => {
+          element.id = index;
+      });
+    }
+    
     setCreateProject(undefined);
   }
 
