@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 
-export default function ProjectOverview() {
+export default function ProjectOverview({ selectedProject }) {
 
+    console.log("ProjectOverview updated");
     const inputRef = useRef();
     const [listOfTasks, setListOfTasks] = useState([]);
 
@@ -27,9 +28,9 @@ export default function ProjectOverview() {
     return (
         <div className="w-[700px] pt-20 p-10 flex flex-col items-left gap-5">
             <div className="relative w-[700px] pb-3 flex flex-col gap-3 border-b-2 border-b-stone-300">
-                <h1 className="font-bold text-stone-700 text-3xl">Learning React</h1>
-                <p className="text-stone-400">Dec 29, 2024</p>
-                <p className="text-stone-600">BALBLALBLALVG.\n\nAnd more balbalbalblalbla.</p>
+                <h1 className="font-bold text-stone-700 text-3xl">{selectedProject.title}</h1>
+                <p className="text-stone-400">{selectedProject.dueDate}</p>
+                <p className="text-stone-600">{selectedProject.description}</p>
                 <button className="text-stone-600 absolute top-1 right-0">Delete</button>
             </div>
             <div className="w-[700px] flex flex-col pb-3 gap-3">

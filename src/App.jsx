@@ -10,6 +10,7 @@ let listOfProjects = [];
 function App() {
 
   const [createProject, setCreateProject] = useState(undefined);
+  const [selectedProject, setSelectedProject] = useState(undefined);
 
   function handleClickCreateProjectButton() {
       setCreateProject(null);
@@ -31,7 +32,8 @@ function App() {
     setCreateProject(undefined);
   }
 
-  function handleProjectSelection() {
+  function handleProjectSelection(event) {
+    setSelectedProject(Number(event.target.id));
     setCreateProject(true);
   }
 
@@ -40,8 +42,10 @@ function App() {
   if (createProject === null) {
     mainDisplay = <CreateProjectForm onClose={handleCloseCreateProjectDialog} onCreateProject={handleSubmitProject} />;
   } else if (createProject === true) {
-    mainDisplay = <ProjectOverview />;
+    mainDisplay = <ProjectOverview selectedProject={listOfProjects[selectedProject]} />;
   }
+
+  console.log(createProject);
 
   return (
     <>

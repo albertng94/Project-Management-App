@@ -12,7 +12,7 @@ export default function ProjectsSidebar({ onClick, listOfProjects, onProjectSele
                 <ul>
                     {listOfProjects.map((project, projectIndex) => (
                         <li key={projectIndex} className={liStyle}>
-                            <button onClick={onProjectSelection} className="w-full text-left">
+                            <button onClick={onProjectSelection} id={projectIndex} className="w-full text-left">
                                 {project.title}
                             </button>
                         </li>
