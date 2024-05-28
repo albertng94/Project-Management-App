@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
- const ProjectOverview = forwardRef(function ProjectOverview({ selectedProject, createTask, deleteTask }, ref) {
+ const ProjectOverview = forwardRef(function ProjectOverview({ selectedProject, createTask, deleteTask, onClick }, ref) {
 
     let listOfTasks = [];
 
@@ -14,7 +14,7 @@ import { forwardRef } from "react";
                 <h1 className="font-bold text-stone-700 text-3xl">{selectedProject.title}</h1>
                 <p className="text-stone-400">{selectedProject.dueDate}</p>
                 <p className="text-stone-600">{selectedProject.description}</p>
-                <button className="text-stone-600 absolute top-1 right-0">Delete</button>
+                <button id="deleteProject" onClick={onClick} className="text-stone-600 absolute top-1 right-0">Delete</button>
             </div>
             <div className="w-[700px] flex flex-col pb-3 gap-3">
                 <h2 className="font-bold text-stone-800 text-2xl">Tasks</h2>
