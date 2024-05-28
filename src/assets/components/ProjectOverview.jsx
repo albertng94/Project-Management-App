@@ -1,28 +1,11 @@
-import { useState, useRef } from "react";
+import { forwardRef } from "react";
 
-export default function ProjectOverview({ selectedProject }) {
+ const ProjectOverview = forwardRef(function ProjectOverview({ selectedProject, createTask, deleteTask }, ref) {
 
-    console.log("ProjectOverview updated");
-    const inputRef = useRef();
-    const [listOfTasks, setListOfTasks] = useState([]);
+    let listOfTasks = [];
 
-    function createTask() {
-        setListOfTasks((prevListOfTasks) => {
-            let newListOfTasks = [...prevListOfTasks];
-            newListOfTasks.push(inputRef.current.value);
-            console.log(newListOfTasks);
-            return newListOfTasks;
-        });
-    }
-
-    function deleteTask(event) {
-        setListOfTasks((prevListOfTasks) => {
-            let newListOfTasks = [...prevListOfTasks];
-            console.log(event.target.id);
-            newListOfTasks.splice(event.target.id, 1);
-            console.log(newListOfTasks);
-            return newListOfTasks;
-        });
+    if (selectedProject.tasks) {
+        listOfTasks = selectedProject.tasks;
     }
 
     return (
@@ -36,13 +19,13 @@ export default function ProjectOverview({ selectedProject }) {
             <div className="w-[700px] flex flex-col pb-3 gap-3">
                 <h2 className="font-bold text-stone-800 text-2xl">Tasks</h2>
                 <div className="flex gap-4 items-center">
-                    <input ref={inputRef} className="w-1/2 py-1 px-3 bg-stone-200 rounded-sm focus:outline-blue-600 focus:outline-3"></input>
+                    <input ref={ref} className="w-1/2 py-1 px-3 bg-stone-200 rounded-sm focus:outline-blue-600 focus:outline-3"></input>
                     <label htmlFor=""><button onClick={createTask}>Add Task</button></label>
                 </div>
             </div>
             <div className="w-[700px] bg-stone-200 py-8 px-3 rounded-sm">
                 <ul className="flex flex-col gap-3">
-                    {listOfTasks.map((task, taskIndex) => (
+                    {(listOfTasks).map((task, taskIndex) => (
                         <div key={taskIndex} className="flex justify-between">
                             <li>{task}</li>
                             <button id={taskIndex} onClick={deleteTask}>Clear</button>
@@ -52,4 +35,6 @@ export default function ProjectOverview({ selectedProject }) {
             </div>
         </div>
     );
-}
+});
+
+export default ProjectOverview;
