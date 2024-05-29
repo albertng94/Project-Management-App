@@ -17,7 +17,7 @@ function App() {
 
 
   function handleClickCreateProjectButton() {
-      setCreateProject(null);
+      setDisplay(null);
   }
 
   function handleCloseProjectDisplay(event) {

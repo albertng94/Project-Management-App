@@ -8,6 +8,12 @@ import { forwardRef } from "react";
         listOfTasks = selectedProject.tasks;
     }
 
+    let tasksDivStyling = "w-[700px] py-8 px-3 rounded-sm";
+
+    if (listOfTasks.length > 0) {
+        tasksDivStyling = "w-[700px] bg-stone-200 py-8 px-3 rounded-sm";
+    }
+
     return (
         <div className="w-[700px] pt-20 p-10 flex flex-col items-left gap-5">
             <div className="relative w-[700px] pb-3 flex flex-col gap-3 border-b-2 border-b-stone-300">
@@ -23,7 +29,7 @@ import { forwardRef } from "react";
                     <label htmlFor=""><button onClick={createTask}>Add Task</button></label>
                 </div>
             </div>
-            <div className="w-[700px] bg-stone-200 py-8 px-3 rounded-sm">
+            <div className={tasksDivStyling}>
                 <ul className="flex flex-col gap-3">
                     {(listOfTasks).map((task, taskIndex) => (
                         <div key={taskIndex} className="flex justify-between">
