@@ -46,24 +46,26 @@ function App() {
   }
 
   function createTask() {
-    setListOfTasks((prevListOfTasks) => {
-      if (listOfProjects[selectedProject].tasks && (listOfProjects[selectedProject].tasks).length > 0) {
-        let newListOfTasks = [...listOfProjects[selectedProject].tasks];
-        newListOfTasks.push(tasksInput.current.value);
-        listOfProjects[selectedProject].tasks = newListOfTasks; 
-        tasksInput.current.value = null;
-        return newListOfTasks;
-      } else {
-        let newListOfTasks = [...prevListOfTasks];
-        newListOfTasks.push(tasksInput.current.value);
-        listOfProjects[selectedProject] = {
-          ...listOfProjects[selectedProject],
-          tasks: newListOfTasks
-        }; 
-        tasksInput.current.value = null;
-        return newListOfTasks;
-      }
-    });
+    if (tasksInput.current.value == true) {
+      setListOfTasks((prevListOfTasks) => {
+        if (listOfProjects[selectedProject].tasks && (listOfProjects[selectedProject].tasks).length > 0) {
+          let newListOfTasks = [...listOfProjects[selectedProject].tasks];
+          newListOfTasks.push(tasksInput.current.value);
+          listOfProjects[selectedProject].tasks = newListOfTasks; 
+          tasksInput.current.value = null;
+          return newListOfTasks;
+        } else {
+          let newListOfTasks = [...prevListOfTasks];
+          newListOfTasks.push(tasksInput.current.value);
+          listOfProjects[selectedProject] = {
+            ...listOfProjects[selectedProject],
+            tasks: newListOfTasks
+          }; 
+          tasksInput.current.value = null;
+          return newListOfTasks;
+        }
+      });
+    }
 }
 
 function deleteTask(event) {
