@@ -25,8 +25,8 @@ import { forwardRef } from "react";
             <div className="w-[700px] flex flex-col pb-3 gap-3">
                 <h2 className="font-bold text-stone-800 text-2xl">Tasks</h2>
                 <div className="flex gap-4 items-center">
-                    <input ref={ref} className="w-1/2 py-1 px-3 bg-stone-200 rounded-sm focus:outline-blue-600 focus:outline-3"></input>
-                    <label htmlFor=""><button onClick={createTask}>Add Task</button></label>
+                    <input id="tasksInput" name="tasksInput" ref={ref} className="w-1/2 py-1 px-3 bg-stone-200 rounded-sm focus:outline-blue-600 focus:outline-3"></input>
+                    <label htmlFor="tasksInput"><button onClick={createTask}>Add Task</button></label>
                 </div>
             </div>
             <div className={tasksDivStyling}>

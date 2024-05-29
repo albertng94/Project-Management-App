@@ -51,6 +51,7 @@ function App() {
         let newListOfTasks = [...listOfProjects[selectedProject].tasks];
         newListOfTasks.push(tasksInput.current.value);
         listOfProjects[selectedProject].tasks = newListOfTasks; 
+        tasksInput.current.value = null;
         return newListOfTasks;
       } else {
         let newListOfTasks = [...prevListOfTasks];
@@ -59,6 +60,7 @@ function App() {
           ...listOfProjects[selectedProject],
           tasks: newListOfTasks
         }; 
+        tasksInput.current.value = null;
         return newListOfTasks;
       }
     });
