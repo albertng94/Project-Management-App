@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 const labelStyle = "font-bold text-stone-500";
-const inputStyle = "bg-stone-300 border-b-2 border-b-stone-400 rounded-sm";
+const inputStyle = "bg-stone-300 border-b-2 border-b-stone-400 rounded-sm focus:border-b-2 focus:border-b-stone-900 focus:outline-none";
 
 export default function CreateProjectForm({ onClose, onCreateProject }) {
 

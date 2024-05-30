@@ -28,7 +28,7 @@ import { forwardRef } from "react";
                 <h2 className="font-bold text-stone-800 text-2xl">Tasks</h2>
                 <div className="flex gap-4 items-center">
                     <input id="tasksInput" name="tasksInput" ref={ref} className="w-1/2 py-1 px-3 bg-stone-200 rounded-sm focus:outline-blue-600 focus:outline-3"></input>
-                    <label htmlFor="tasksInput"><button onClick={createTask}>Add Task</button></label>
+                    <label className="text-stone-800" htmlFor="tasksInput"><button onClick={createTask}>Add Task</button></label>
                 </div>
             </div>
             <div className={tasksDivStyling}>
@@ -36,7 +36,7 @@ import { forwardRef } from "react";
                     {(listOfTasks).map((task, taskIndex) => (
                         <div key={taskIndex} className="flex justify-between">
                             <li>{task}</li>
-                            <button id={taskIndex} onClick={deleteTask}>Clear</button>
+                            <button className="text-stone-800" id={taskIndex} onClick={deleteTask}>Clear</button>
                         </div>
                     ))}
                 </ul>

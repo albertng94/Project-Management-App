@@ -18,12 +18,14 @@ function App() {
 
   function handleClickCreateProjectButton() {
       setDisplay(null);
+      setSelectedProject(undefined);
   }
 
   function handleCloseProjectDisplay(event) {
     setDisplay(undefined);
     if (event.target.id === "deleteProject") {
       listOfProjects.splice(selectedProject, 1);
+      setSelectedProject(undefined);
     }
   }
 
@@ -91,7 +93,8 @@ function deleteTask(event) {
       <ProjectsSidebar 
       onClick={handleClickCreateProjectButton} 
       listOfProjects={listOfProjects} 
-      onProjectSelection={handleProjectSelection} 
+      onProjectSelection={handleProjectSelection}
+      isSelected={selectedProject} 
       />
       {mainDisplay}
     </>
