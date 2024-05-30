@@ -46,7 +46,8 @@ function App() {
   }
 
   function createTask() {
-    if (tasksInput.current.value == true) {
+    console.log(tasksInput.current.value);
+    if (tasksInput.current.value) {
       setListOfTasks((prevListOfTasks) => {
         if (listOfProjects[selectedProject].tasks && (listOfProjects[selectedProject].tasks).length > 0) {
           let newListOfTasks = [...listOfProjects[selectedProject].tasks];
@@ -61,7 +62,7 @@ function App() {
             ...listOfProjects[selectedProject],
             tasks: newListOfTasks
           }; 
-          tasksInput.current.value = null;
+          tasksInput.current.value = "";
           return newListOfTasks;
         }
       });
