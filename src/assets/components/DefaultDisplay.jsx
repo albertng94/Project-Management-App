@@ -10,7 +10,7 @@ export default function DefaultDisplay({ onClick }) {
             />
             <h2 className="font-bold text-2xl text-stone-500">No Project Selected</h2>
             <p className="text-lg text-stone-400">Select a project or get started with a new one</p>
-            <button onClick={onClick} className="m-5 py-2 px-5 bg-stone-700 text-lg text-stone-400 rounded-lg">Create new project</button>
+            <button onClick={onClick} className="m-5 py-2 px-5 bg-stone-700 text-lg text-stone-400 rounded-lg hover:bg-stone-600 hover:text-stone-100">Create new project</button>
         </div>
     );
 }

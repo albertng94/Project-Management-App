@@ -5,7 +5,7 @@ export default function ProjectsSidebar({ onClick, listOfProjects, onProjectSele
     return (
         <div className=" flex flex-col shrink-0 bg-stone-900 gap-10 px-10 w-96 text-white rounded-tr-2xl">
             <h2 className="mt-20 font-bold text-2xl">YOUR PROJECTS</h2>
-            <button onClick={onClick} className="w-36 py-2 px-3 bg-stone-700 text-lg text-stone-400 rounded-lg">+ Add Project</button>
+            <button onClick={onClick} className="w-36 py-2 px-3 bg-stone-700 text-lg text-stone-400 rounded-lg hover:bg-stone-600 hover:text-stone-100">+ Add Project</button>
             <div>
                 <ul>
                     {listOfProjects.map((project, projectIndex) => (
