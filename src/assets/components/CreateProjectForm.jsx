@@ -16,6 +16,7 @@ export default function CreateProjectForm({ onClose, onCreateProject }) {
                 dueDate: projectDueDate.current.value
             };
         onCreateProject(submittedProject);
+        console.log(projectDescription.current.value);
     }
 
     return (
