@@ -24,6 +24,7 @@ You can watch it live at: https://albertng94.github.io/Project-Management-App/
 - Learned to use the "forwardRef" method to take a ref from one component and use it in a different one.
 - Got familiar with the use of "Tailwind" as a CSS framework for React projects.
 - Learned that a prop can be used to link the execution of a function in component A, causing the execution of another function in component B.
+- Learned how to deploy a React project to Github Pages by creating a new workflow.
 
 
 
